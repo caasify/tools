@@ -54,8 +54,13 @@ tar xvzf /tmp/emerging.rules.tar.gz
 rm -rf /etc/suricata/rules 
 mkdir /etc/suricata/rules
 chmod 755 /etc/suricata/rules/
-mv /tmp/rules/*.rules /etc/suricata/rules/ 
-chmod 644 /etc/suricata/rules/*.rules
+mv /tmp/rules/*.rules /etc/suricata/rules/
+if [ -f /etc/apt/sources.list ]; then
+  chmod 640 /etc/suricata/rules/*.rules
+elif [ -d /etc/yum.repos.d/ ]; then
+  chmod 644 /etc/suricata/rules/*.rules
+fi
+
 
 rm -f /etc/suricata/suricata.yaml
 wget -O /etc/suricata/suricata.yaml https://packages.wazuh.com/4.3/suricata.yml
