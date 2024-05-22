@@ -55,7 +55,7 @@ rm -rf /etc/suricata/rules
 mkdir /etc/suricata/rules
 chmod 755 /etc/suricata/rules/
 mv /tmp/rules/*.rules /etc/suricata/rules/ 
-chmod 640 /etc/suricata/rules/*.rules
+chmod 644 /etc/suricata/rules/*.rules
 
 rm -f /etc/suricata/suricata.yaml
 wget -O /etc/suricata/suricata.yaml https://packages.wazuh.com/4.3/suricata.yml
