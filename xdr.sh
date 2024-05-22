@@ -42,8 +42,10 @@ elif [[ $package_system == "rpm" ]]; then
   elif [[ $cpu_arch == "amd64" ]]; then
     package='x86_64.rpm'
   fi
-  yum update
-  yum instal suricata tar wget -y
+  dnf install epel-release dnf-plugins-core -y
+  dnf copr enable @oisf/suricata-7.0 -y
+  dnf install suricata -y
+  yum instal tar wget -y
   wget -O /tmp/wazuh.rpm "https://packages.wazuh.com/4.x/yum/wazuh-agent-4.7.3-1.$package"
   rpm -ihv /tmp/wazuh.rpm
 fi
