@@ -55,11 +55,8 @@ rm -rf /etc/suricata/rules
 mkdir /etc/suricata/rules
 chmod 755 /etc/suricata/rules/
 mv /tmp/rules/*.rules /etc/suricata/rules/
-if [ -f /etc/apt/sources.list ]; then
-  chmod 640 /etc/suricata/rules/*.rules
-elif [ -d /etc/yum.repos.d/ ]; then
-  chmod 644 /etc/suricata/rules/*.rules
-fi
+chmod 644 /etc/suricata/rules/*.rules
+
 
 
 rm -f /etc/suricata/suricata.yaml
@@ -71,6 +68,7 @@ sed -i.bak 's/HOME_NET: "\[192.168.0.0\/16,10.0.0.0\/8,172.16.0.0\/12\]"/HOME_NE
 
 
 suricata-update
+sleep 20
 
 systemctl daemon-reload
 systemctl enable suricata 
