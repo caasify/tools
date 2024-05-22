@@ -1,8 +1,11 @@
 #!/bin/bash
 
+dc_type=$1
+vm_name=$2
+
 export WAZUH_MANAGER="xdr.caasify.com"
-export WAZUH_AGENT_GROUP="Hetzner,Suricata"
-export WAZUH_AGENT_NAME="vm-name"
+export WAZUH_AGENT_GROUP="$dc_type,Suricata"
+export WAZUH_AGENT_NAME="$vm_name"
 
 # Detect package system
 if [ -f /etc/apt/sources.list ]; then
