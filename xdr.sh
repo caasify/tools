@@ -30,6 +30,7 @@ if [[ $package_system == "deb" ]]; then
   elif [[ $cpu_arch == "aarch64" ]]; then
   package='arm64.deb'
   fi
+  add-apt-repository ppa:oisf/suricata-stable
   apt-get update
   apt-get install suricata tar wget -y
   wget -O /tmp/wazuh.deb "https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.7.3-1_$package" 
