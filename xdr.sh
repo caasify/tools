@@ -51,6 +51,8 @@ fi
 
 cd /tmp/ && wget https://rules.emergingthreats.net/open/suricata-6.0.3/emerging.rules.tar.gz
 tar xvzf /tmp/emerging.rules.tar.gz
+rm -rf /etc/suricata/rules 
+mkdir /etc/suricata/rules
 mv /tmp/rules/*.rules /etc/suricata/rules/ 
 chmod 640 /etc/suricata/rules/*.rules
 
