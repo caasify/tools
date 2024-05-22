@@ -10,7 +10,7 @@ export WAZUH_AGENT_NAME="$vm_name"
 # Detect package system
 if [ -f /etc/apt/sources.list ]; then
   package_system="deb"
-elif [ -f /etc/yum.repos.d/ ]; then
+elif [ -d /etc/yum.repos.d/ ]; then
   package_system="rpm"
 fi
 
