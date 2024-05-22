@@ -68,5 +68,7 @@ sed -i.bak 's/HOME_NET: "\[192.168.0.0\/16,10.0.0.0\/8,172.16.0.0\/12\]"/HOME_NE
 suricata-update
 
 systemctl daemon-reload
-systemctl enable suricata wazuh-agent
-systemctl start suricata wazuh-agent
+systemctl enable suricata 
+systemctl enable wazuh-agent
+systemctl start suricata 
+systemctl start wazuh-agent
