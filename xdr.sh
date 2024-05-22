@@ -45,7 +45,7 @@ elif [[ $package_system == "rpm" ]]; then
   yum update
   yum instal suricata tar wget -y
   wget -O /tmp/wazuh.rpm "https://packages.wazuh.com/4.x/yum/wazuh-agent-4.7.3-1.$package"
-  rpm -ihv /tmp/wazuh.wazuh.rpm
+  rpm -ihv /tmp/wazuh.rpm
 fi
 
 cd /tmp/ && wget https://rules.emergingthreats.net/open/suricata-6.0.3/emerging.rules.tar.gz
