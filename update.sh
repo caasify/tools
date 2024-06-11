@@ -1,7 +1,7 @@
 #/bin/bash
 # Version: 1.0.0
 
-curl -sSfL https://raw.githubusercontent.com/aleksibovellan/opnsense-suricata-nmaps/main/local.rules -o /etc/suricata/rules/nmap.rules
+curl -sSfL https://raw.githubusercontent.com/caasify/tools/main/nmap.rules -o /etc/suricata/rules/nmap.rules
 chmod 644 /etc/suricata/rules/nmap.rules
 sed -i '/#Malware\/trojan oriented rules/a\ - nmap.rules' /etc/suricata/suricata.yaml
 
