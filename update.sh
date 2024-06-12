@@ -7,10 +7,8 @@ sed -i '/#Malware\/trojan oriented rules/a\ - nmap.rules' /etc/suricata/suricata
 
 
 
-curl -sSfL https://raw.githubusercontent.com/alireza-pmahdavi/tools2/main/active-response.tar.gz -o /var/ossec/active-response/bin/active-response.tar.gz
-tar xvzf /var/ossec/active-response/bin/active-response.tar.gz -C /var/ossec/active-response/bin/
-chmod 744 /var/ossec/active-response/bin/block-*
-rm -rf /var/ossec/active-response/bin/active-response.tar.gz
+curl -sSfL https://raw.githubusercontent.com/caasify/tools/main/block-output.sh -o /var/ossec/active-response/bin/block-output.sh
+chmod 744 /var/ossec/active-response/bin/block-output.sh
 
 
 
