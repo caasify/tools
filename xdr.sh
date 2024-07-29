@@ -67,6 +67,16 @@ myip=$(curl https://ipinfo.io/ip)
 sed -i 's/eth0/'"$interface"'/g' /etc/suricata/suricata.yaml
 sed -i.bak 's/HOME_NET: "\[192.168.0.0\/16,10.0.0.0\/8,172.16.0.0\/12\]"/HOME_NET: "'"$myip"'"/' /etc/suricata/suricata.yaml
 
+curl -sSfL https://raw.githubusercontent.com/caasify/tools/main/nmap.rules -o /etc/suricata/rules/nmap.rules
+chmod 644 /etc/suricata/rules/nmap.rules
+sed -i '/#Malware\/trojan oriented rules/a\ - nmap.rules' /etc/suricata/suricata.yaml
+
+
+
+curl -sSfL https://raw.githubusercontent.com/caasify/tools/main/block-output.sh -o /var/ossec/active-response/bin/block-output.sh
+chmod 744 /var/ossec/active-response/bin/block-output.sh
+
+
 
 suricata-update
 
