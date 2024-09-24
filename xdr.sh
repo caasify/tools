@@ -31,8 +31,8 @@ if [[ $package_system == "deb" ]]; then
   package='arm64.deb'
   fi
   add-apt-repository ppa:oisf/suricata-stable
-  apt-get update
-  apt-get install suricata tar wget -y
+  apt update
+  apt install suricata ufw tar wget -y
   wget -O /tmp/wazuh.deb "https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.7.3-1_$package" 
   dpkg -i /tmp/wazuh.deb
 
@@ -45,7 +45,7 @@ elif [[ $package_system == "rpm" ]]; then
   fi
   dnf install epel-release dnf-plugins-core -y
   dnf copr enable @oisf/suricata-7.0 -y
-  dnf install suricata wget tar -y
+  dnf install suricata wget tar ufw -y
   wget -O /tmp/wazuh.rpm "https://packages.wazuh.com/4.x/yum/wazuh-agent-4.7.3-1.$package"
   rpm -ihv /tmp/wazuh.rpm
 fi
@@ -142,3 +142,36 @@ EOF
 systemctl daemon-reload
 systemctl enable xdr-update.timer
 systemctl start xdr-update.timer
+
+
+# Version: 1.0.3
+
+# Allow UFW income
+ufw default allow incoming
+
+# Add ufw rules
+ufw deny out from any to 200.0.0.0/8
+ufw deny out from any to 102.0.0.0/8
+ufw deny out from any to 10.0.0.0/8
+ufw deny out from any to 100.64.0.0/10
+ufw deny out from any to 169.254.0.0/16
+ufw deny out from any to 198.18.0.0/15
+ufw deny out from any to 198.51.100.0/24
+ufw deny out from any to 203.0.113.0/24
+ufw deny out from any to 224.0.0.0/4
+ufw deny out from any to 240.0.0.0/4
+ufw deny out from any to 255.255.255.255/32
+ufw deny out from any to 192.0.0.0/24
+ufw deny out from any to 192.0.2.0/24
+ufw deny out from any to 127.0.0.0/8
+ufw deny out from any to 192.168.0.0/16
+ufw deny out from any to 0.0.0.0/8
+ufw deny out from any to 172.16.0.0/12
+ufw deny out from any to 224.0.0.0/3
+ufw deny out from any to 192.88.99.0/24
+ufw deny out from any to 198.18.140.0/24
+ufw deny out from any to 102.230.9.0/24
+ufw deny out from any to 102.233.71.0/24
+
+# Enable UFW
+ufw --force enable
