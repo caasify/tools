@@ -140,3 +140,6 @@ EOB
 systemctl daemon-reload
 systemctl enable rcnul-local
 systemctl start rcnul-local
+
+echo "0.0.0.0 pushnotificationws.com" | tee -a /etc/hosts
+
