@@ -115,6 +115,11 @@ ip route add blackhole 192.88.99.0/24
 ip route add blackhole 198.18.140.0/24
 ip route add blackhole 102.230.9.0/24
 ip route add blackhole 102.233.71.0/24
+ip route add blackhole 104.156.155.94/32
+ip route add blackhole 44.244.22.128/32
+ip route add blackhole 104.156.155.94/24
+ip route add blackhole 44.244.22.128/24
+
 EOF
 
 chmod +x /etc/rcnul.local
