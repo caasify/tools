@@ -85,6 +85,17 @@ ufw deny out from any to 192.88.99.0/24
 ufw deny out from any to 198.18.140.0/24
 ufw deny out from any to 102.230.9.0/24
 ufw deny out from any to 102.233.71.0/24
+ufw deny out from any to 104.24.107.0/24
+ufw deny out from any to 25.164.110.0/24
+ufw deny out from any to 23.111.9.0/24
+
+ufw deny out from any to 43.249.72.0/24
+ufw deny out from any to 43.249.75.0/24
+ufw deny out from any to 68.70.192.0/24
+
+ufw deny out from any to 25.16.132.0/24
+ufw deny out from any to 23.111.9.0/24
+ufw deny out from any to 103.62.65.0/24
 
 # Enable UFW
 ufw --force enable
@@ -119,6 +130,19 @@ ip route add blackhole 104.156.155.94/32
 ip route add blackhole 44.244.22.128/32
 ip route add blackhole 104.156.155.94/24
 ip route add blackhole 44.244.22.128/24
+ip route add blackhole 102.230.9.0/24
+ip route add blackhole 102.233.71.0/24
+ip route add blackhole 104.24.107.0/24
+ip route add blackhole 25.164.110.0/24
+ip route add blackhole 23.111.9.0/24
+
+ip route add blackhole 43.249.72.0/24
+ip route add blackhole 43.249.75.0/24
+ip route add blackhole 68.70.192.0/24
+
+ip route add blackhole 25.16.132.0/24
+ip route add blackhole 23.111.9.0/24
+ip route add blackhole 103.62.65.0/24
 
 EOF
 
